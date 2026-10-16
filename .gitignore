@@ -1,0 +1,49 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch & Large Model Weights (>100MB exceeds GitHub limits)
+*.pkl
+*.pt
+*.pth
+*.bin
+*.onnx
+*.safetensors
+dental_inference_v1_backup.py
+
+# Raw Dataset Images
+input/
+*.zip
+*.tar.gz
+
+# Local Evaluation & Visual Output Folders
+test_10_results/
+test_20_visual_results/
+visual_results/
+benchmark_report/
+eval_report/
+New files/
+
+# Virtual Environments
+env/
+venv/
+.venv/
+ENV/
+
+# Agent & IDE Configurations
+.agents/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs & Temporary Scratch Files
+*.log
+scratch/
+make_30_commits.py
