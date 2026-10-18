@@ -67,6 +67,7 @@ MODEL_PATH = find_model_path()
 SAMPLE_IMAGE_PATH = ROOT / "sample_panoramic.jpg"
 MIN_IMAGE_PIXELS = 200 * 200          # reject images smaller than this
 MAX_UPLOAD_MB = 50
+# Clinical disclaimer banner
 DISCLAIMER = (
     "⚠️ **Research prototype. Not a medical device. "
     "Not validated for clinical use. "
