@@ -1,4 +1,4 @@
-# Dental Caries Research Demo
+# DualStage Dental Caries Detection & Segmentation (Faster R-CNN & U-Net)
 
 A Streamlit research demo for a dual-stage dental caries detection and segmentation pipeline on panoramic radiographs.
 
