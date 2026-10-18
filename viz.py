@@ -1,3 +1,4 @@
+# Visual overlay and colorbar styling for dental panoramic radiographs
 """
 viz.py - Drawing and visualisation utilities for the dental caries Streamlit app.
 
