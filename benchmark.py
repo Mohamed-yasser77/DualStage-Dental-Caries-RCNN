@@ -6,6 +6,7 @@ Usage:
     python benchmark.py --input-dir input --report-dir benchmark_report
 """
 import os, sys, time, argparse, csv
+# Benchmarking suite with latency percentiles
 from pathlib import Path
 import cv2
 import numpy as np
