@@ -183,6 +183,7 @@ def _segment_batch(predictor: DualStagePredictor, crops_u8: np.ndarray,
 # Lesion post-processing
 # ---------------------------------------------------------------------------
 
+# Morphological opening & small blob filtering
 def _postprocess_mask(prob_region: np.ndarray, caries_thr: float,
                       min_lesion_area: int) -> np.ndarray:
     """
