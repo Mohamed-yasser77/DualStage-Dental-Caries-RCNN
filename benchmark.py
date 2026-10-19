@@ -22,6 +22,8 @@ from dental_inference import DualStagePredictor
 
 def find_model_path():
     candidates = [
+        BASE_DIR / "dental_caries_dualstage_retrained.pkl",
+        BASE_DIR / "dental_caries_dualstage_retrrained.pkl",
         BASE_DIR / "dental_caries_dualstage (2).pkl",
         BASE_DIR / "dental_caries_dualstage.pkl",
     ]
