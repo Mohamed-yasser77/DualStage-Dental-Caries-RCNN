@@ -47,3 +47,5 @@ desktop.ini
 *.log
 scratch/
 make_30_commits.py
+finish_remaining_commits.py
+run_final_6_commits.py

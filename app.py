@@ -168,8 +168,8 @@ def _render_sidebar() -> dict:
     st.sidebar.header("Stage 1 – Tooth Detection")
     det_score_thr = st.sidebar.slider(
         "Detection score threshold",
-        min_value=0.0, max_value=1.0, value=0.5, step=0.01,
-        help="Minimum confidence for a detected tooth to be kept.",
+        min_value=0.0, max_value=1.0, value=0.70, step=0.01,
+        help="Minimum confidence for a detected tooth to be kept (calibrated to 0.70 for v2.0).",
         key="det_score_thr",
     )
     nms_iou_thr = st.sidebar.slider(
@@ -182,8 +182,8 @@ def _render_sidebar() -> dict:
     st.sidebar.header("Stage 2 – Caries Segmentation")
     caries_thr = st.sidebar.slider(
         "Caries probability threshold",
-        min_value=0.0, max_value=1.0, value=0.5, step=0.01,
-        help="Pixels above this are counted as caries.",
+        min_value=0.0, max_value=1.0, value=0.40, step=0.01,
+        help="Pixels above this are counted as caries (calibrated to 0.40 for v2.0).",
         key="caries_thr",
     )
     min_lesion_area = st.sidebar.slider(
