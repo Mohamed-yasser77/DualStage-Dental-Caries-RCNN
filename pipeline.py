@@ -300,12 +300,26 @@ def run_inference(
     crop_probs = _segment_batch(predictor, seg_input, use_tta=use_tta)
 
     # ---- Stitch probability map ------------------------------------------
-    prob_full = np.zeros((H, W), np.float32)
-    for crop_prob, pb in zip(crop_probs, padded_boxes):
-        x1, y1, x2, y2 = pb
-        resized = cv2.resize(crop_prob, (x2 - x1, y2 - y1),
-                             interpolation=cv2.INTER_LINEAR)
-        prob_full[y1:y2, x1:x2] = np.maximum(prob_full[y1:y2, x1:x2], resized)
+    merge_mode = getattr(predictor, "merge", "max")
+    if merge_mode == "weighted" and hasattr(predictor, "_own_region"):
+        acc = np.zeros((H, W), np.float32)
+        wsum = np.zeros((H, W), np.float32)
+        for crop_prob, pb, ob in zip(crop_probs, padded_boxes, valid_boxes):
+            x1, y1, x2, y2 = pb
+            resized = cv2.resize(crop_prob, (x2 - x1, y2 - y1),
+                                 interpolation=cv2.INTER_LINEAR)
+            w = predictor._own_region(ob, pb, W, H)
+            acc[y1:y2, x1:x2] += resized * w
+            wsum[y1:y2, x1:x2] += w
+        prob_full = np.zeros((H, W), np.float32)
+        np.divide(acc, wsum, out=prob_full, where=wsum > 0)
+    else:
+        prob_full = np.zeros((H, W), np.float32)
+        for crop_prob, pb in zip(crop_probs, padded_boxes):
+            x1, y1, x2, y2 = pb
+            resized = cv2.resize(crop_prob, (x2 - x1, y2 - y1),
+                                 interpolation=cv2.INTER_LINEAR)
+            prob_full[y1:y2, x1:x2] = np.maximum(prob_full[y1:y2, x1:x2], resized)
 
     # ---- Per-tooth stats --------------------------------------------------
     teeth = []
