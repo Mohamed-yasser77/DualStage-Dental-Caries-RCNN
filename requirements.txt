@@ -1,13 +1,9 @@
-# requirements.txt – Dental Caries Research Demo
-# Pin versions for Streamlit Community Cloud (CPU-optimized for fast builds)
---extra-index-url https://download.pytorch.org/whl/cpu
-
-torch==2.3.1+cpu
-torchvision==0.18.1+cpu
-streamlit==1.35.0
-opencv-python-headless==4.10.0.84
-numpy==1.26.4
-pandas==2.2.2
-Pillow==10.4.0
-segmentation-models-pytorch==0.3.4
-timm==0.9.16
+torch
+torchvision
+streamlit
+opencv-python-headless
+numpy<2.0.0
+pandas
+Pillow
+segmentation-models-pytorch
+timm
