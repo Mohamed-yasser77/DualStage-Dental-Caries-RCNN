@@ -1,6 +1,10 @@
 # DualStage Dental Caries Detection & Segmentation (Faster R-CNN & U-Net)
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://dualstage-dental-caries-rcnn.streamlit.app/)
+
 A Streamlit research demo for a dual-stage dental caries detection and segmentation pipeline on panoramic radiographs.
+
+🚀 **Live Interactive Demo:** [https://dualstage-dental-caries-rcnn.streamlit.app/](https://dualstage-dental-caries-rcnn.streamlit.app/)
 
 > **Research prototype. Not a medical device. Not validated for clinical use. Results must not be used for treatment decisions.**
 
@@ -20,13 +24,13 @@ Predicted per-tooth masks are stitched back to full-image coordinates using a ma
 ## File layout
 
 ```
-dental_caries_dualstage (2).pkl   ← model weights (not in repo)
-app.py                            ← Streamlit UI
-pipeline.py                       ← inference logic (load_model, run_inference)
-viz.py                            ← drawing utilities
-dental_inference.py               ← original DualStagePredictor class
+dental_caries_dualstage_retrained.pkl   ← model weights (tracked via Git LFS)
+app.py                                  ← Streamlit UI
+pipeline.py                             ← inference logic (load_model, run_inference)
+viz.py                                  ← drawing utilities
+dental_inference.py                     ← DualStagePredictor class
 requirements.txt
-sample_panoramic.jpg              ← bundled demo image
+sample_panoramic.jpg                    ← bundled demo image
 ```
 
 ---
